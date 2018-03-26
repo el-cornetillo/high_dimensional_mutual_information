@@ -25,6 +25,7 @@ class SSD:
     def _sample(self, img):
         ''' Returns the RGB vectors of each pixel, size N_pixel * d (=3) '''
         return np.array([img[i][j] for i in range(img.shape[0]) for j in range(img.shape[1])]).astype('float')
+        # return np.reshape(img, (img.shape[0]*img.shape[1], img.shape[2]))
     
     def get_criterion(self, img1, img2, chunk =None, canal = None):
         # params chunk/canal : for consistency, ignored in this function
@@ -32,7 +33,7 @@ class SSD:
         x = self._sample(img1)
         y = self._sample(img2)
 
-        return -1 * np.sum((x - y)**2)
+        return -1 * np.sum((x - y)**2) # / img.size
 
     def get_name(self):
         return "SSD"
@@ -177,6 +178,7 @@ class CoMI(BaseKnnMIEstimator):
     def _sample(self, img):
         ''' Returns the RGB vectors of each pixel, size N_pixel * d (=3) '''
         return np.array([img[i][j] for i in range(img.shape[0]) for j in range(img.shape[1])]) #.astype('float')
+        # return np.reshape(img, (img.shape[0]*img.shape[1], img.shape[2]))
 
     def get_name(self):
         if self.mode == "kybic":
