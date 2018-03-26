@@ -105,8 +105,8 @@ class BaseKnnMIEstimator:
         avg /= n_chunks
         return avg
 
-    def _get_criterion_krashov(self, img1, img2, k = 1, base = 2, chunk = None):
-        ''' Estimates the MI with the Krashov formula '''
+    def _get_criterion_kraskov(self, img1, img2, k = 1, base = 2, chunk = None):
+        ''' Estimates the MI with the Kraskov formula '''
         x = self._sample(img1)
         y = self._sample(img2)
         
@@ -163,8 +163,8 @@ class BaseKnnMIEstimator:
     def get_criterion(self, img1, img2, k = 1, base = 2, chunk = None, canal = None):
         if self.mode == "kybic":
             return self._get_criterion_kybic(img1, img2, k = k, base = base, chunk = chunk)
-        elif self.mode == "krashov":
-            return self._get_criterion_krashov(img1, img2, k = k, base = base, chunk = chunk)
+        elif self.mode == "kraskov":
+            return self._get_criterion_kraskov(img1, img2, k = k, base = base, chunk = chunk)
         else:
             return self._get_criterion_ite(img1, img2, k = k, base = base, chunk = chunk)
 
@@ -181,8 +181,8 @@ class CoMI(BaseKnnMIEstimator):
     def get_name(self):
         if self.mode == "kybic":
             return "CoMI KYBIC"
-        elif self.mode == "krashov":
-            return "CoMI KRASHOV"
+        elif self.mode == "kraskov":
+            return "CoMI KRASKOV"
         else:
             return "CoMI ITE"
 
@@ -207,7 +207,7 @@ class NbMI(BaseKnnMIEstimator):
     def get_name(self):
         if self.mode == "kybic":
             return "NbMI KYBIC"
-        elif self.mode == "krashov":
-            return "NbMI KRASHOV"
+        elif self.mode == "kraskov":
+            return "NbMI KRASKOV"
         else:
             return "NbMI ITE"
