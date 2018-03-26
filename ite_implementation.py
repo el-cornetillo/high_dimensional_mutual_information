@@ -1,3 +1,5 @@
+## CODE FROM THE ITE PACKAGE : https://bitbucket.org/szzoli/ite-in-python/
+
 from scipy.special import psi, gamma
 from scipy.spatial import KDTree, cKDTree
 
