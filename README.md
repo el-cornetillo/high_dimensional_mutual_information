@@ -5,7 +5,7 @@ Doesn't work well for the moment.
 
 # References
 
-See documentation for references on all implemented estimators.
+The code implements the estimators proposed in the following papers.
 
 				Jan Kybic. 
 				http://cmp.felk.cvut.cz/ftp/articles/kybic/Kybic-ICIP2004.pdf
